@@ -43,7 +43,7 @@ export class PhonesController {
       return numbers;
     } catch (error) {
       return {
-        message: `Errore durante la richiesta dei dati`,
+        message: `Error on getting data!`,
         error,
       };
     }
@@ -80,7 +80,7 @@ export class PhonesController {
       };
     } catch (err) {
       return new HttpException(
-        `Errore durante l'inserimento dei dati`,
+        `Errore on creating data!`,
         HttpStatus.BAD_REQUEST
       );
     }
