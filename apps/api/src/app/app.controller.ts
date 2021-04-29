@@ -59,7 +59,13 @@ export class AppController {
       `${__dirname}/uploads/${filename}`
     );
     const entities = this.validateCsvContent(csvContent);
-
+    this.appService.setPhoneNumbers(entities).catch((err) => {
+      return {
+        status: HttpStatus.INTERNAL_SERVER_ERROR,
+        message: `Errore durante l'inserimento dei dati`,
+        error: err,
+      };
+    });
     return {
       status: HttpStatus.OK,
       message: 'File csv uploaded successfully!',
@@ -69,5 +75,18 @@ export class AppController {
         entities,
       },
     };
+  }
+
+  @Get('phones')
+  async getPhones() {
+    try {
+      const numbers = await this.appService.getPhoneNumbers();
+      return numbers;
+    } catch (error) {
+      return {
+        message: `Errore durante la richiesta dei dati`,
+        error,
+      };
+    }
   }
 }
