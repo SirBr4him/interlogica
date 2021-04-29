@@ -3,6 +3,7 @@ import { MulterModule } from '@nestjs/platform-express';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { PhonesController, PhonesService } from '@interlogica/phones';
 
 @Module({
   imports: [
@@ -10,7 +11,7 @@ import { AppService } from './app.service';
       dest: `${__dirname}/uploads`,
     }),
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, PhonesController],
+  providers: [AppService, PhonesService],
 })
 export class AppModule {}

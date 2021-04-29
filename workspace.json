@@ -40,7 +40,9 @@
               "apps/numbers/src/favicon.ico",
               "apps/numbers/src/assets"
             ],
-            "styles": ["apps/numbers/src/styles.scss"],
+            "styles": [
+              "apps/numbers/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -102,7 +104,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/numbers"],
+          "outputs": [
+            "coverage/apps/numbers"
+          ],
           "options": {
             "jestConfig": "apps/numbers/jest.config.js",
             "passWithNoTests": true
@@ -131,7 +135,9 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/numbers-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/numbers-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -143,12 +149,16 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
+            "assets": [
+              "apps/api/src/assets"
+            ]
           },
           "configurations": {
             "production": {
@@ -173,14 +183,43 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/api/**/*.ts"]
+            "lintFilePatterns": [
+              "apps/api/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/api"],
+          "outputs": [
+            "coverage/apps/api"
+          ],
           "options": {
             "jestConfig": "apps/api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "phones": {
+      "root": "libs/phones",
+      "sourceRoot": "libs/phones/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/phones/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/phones"
+          ],
+          "options": {
+            "jestConfig": "libs/phones/jest.config.js",
             "passWithNoTests": true
           }
         }
