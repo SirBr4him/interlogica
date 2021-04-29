@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@interlogica/phones": ["libs/phones/src/index.ts"]
+      "@interlogica/phones": ["libs/phones/src/index.ts"],
+      "@interlogica/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
