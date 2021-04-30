@@ -16,7 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@interlogica/phones": ["libs/phones/src/index.ts"],
-      "@interlogica/ui": ["libs/ui/src/index.ts"]
+      "@interlogica/ui-phones": ["libs/ui-phones/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

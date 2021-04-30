@@ -3,6 +3,6 @@ module.exports = {
     '<rootDir>/apps/numbers',
     '<rootDir>/apps/api',
     '<rootDir>/libs/phones',
-    '<rootDir>/libs/ui',
+    '<rootDir>/libs/ui-phones',
   ],
 };

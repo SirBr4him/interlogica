@@ -3,20 +3,20 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { distinctUntilChanged, pluck } from 'rxjs/operators';
 
-export interface State {
+export interface PhonesState {
   [key: string]: any;
   phoneNumbers: PhoneNumber[];
 }
 
-const initialState: State = {
+const initialState: PhonesState = {
   phoneNumbers: undefined,
 };
 
 @Injectable({
   providedIn: 'root',
 })
-export class Store {
-  private subject = new BehaviorSubject<State>(initialState);
+export class PhonesStore {
+  private subject = new BehaviorSubject<PhonesState>(initialState);
 
   private store = this.subject.asObservable().pipe(distinctUntilChanged());
 

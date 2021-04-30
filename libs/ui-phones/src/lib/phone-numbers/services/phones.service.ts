@@ -4,21 +4,19 @@ import { Injectable } from '@angular/core';
 import { PhoneNumber } from '@prisma/client';
 import { Observable } from 'rxjs';
 import { filter, tap } from 'rxjs/operators';
-import { Store } from './ui.store';
+import { PhonesStore } from '../../phones-store';
 
 interface UploadResponse {
   originalname: string;
   filename: string;
 }
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class PhonesService {
   phoneNumbers$ = this.store
     .select<PhoneNumber[]>('phoneNumbers')
     .pipe(filter((items) => !!items?.length));
 
-  constructor(private http: HttpClient, private store: Store) {}
+  constructor(private http: HttpClient, private store: PhonesStore) {}
 
   getPhones(): Observable<PhoneNumber[]> {
     return this.http.get<PhoneNumber[]>('/api/phones').pipe(

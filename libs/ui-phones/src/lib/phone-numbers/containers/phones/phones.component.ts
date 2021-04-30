@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PhoneNumber } from '@prisma/client';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { PhonesService } from '../phones.service';
+import { PhonesService } from '../../services/phones.service';
 
 @Component({
   selector: 'interlogica-phones',

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { FileValidator } from '../file-validator';
+import { FileValidator } from '../../../file-validator';
 
 @Component({
   selector: 'interlogica-upload-csv-file',

@@ -16,6 +16,6 @@
     "numbers-e2e": { "tags": [], "implicitDependencies": ["numbers"] },
     "api": { "tags": [] },
     "phones": { "tags": [] },
-    "ui": { "tags": [] }
+    "ui-phones": { "tags": [] }
   }
 }

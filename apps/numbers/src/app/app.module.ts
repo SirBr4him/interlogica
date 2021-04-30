@@ -3,12 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 
-import { UiModule, PhonesComponent } from '@interlogica/ui';
+import { UiPhonesModule } from '@interlogica/ui-phones';
 import { AppComponent } from './app.component';
 
 const routes: Routes = [
-  { path: 'phones', component: PhonesComponent },
-  { path: '', redirectTo: 'phones', pathMatch: 'full' },
+  {
+    path: '',
+    redirectTo: 'phones',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
@@ -17,7 +20,7 @@ const routes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
-    UiModule,
+    UiPhonesModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
