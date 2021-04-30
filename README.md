@@ -24,6 +24,8 @@ The front-end app will run on `http://localhost:4200`
 
 When the app is running navigate to `http://localhost:4200` and upload the south africa phone numbers csv file and check the result.
 
+You can fine the csv file in `./tools/files/Pre-selezione. South_African_Mobile_Numbers.csv`
+
 ## Run tests
 
 - [npm]
