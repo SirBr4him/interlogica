@@ -1,4 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { UploadCsvFileComponent } from './upload-csv-file.component';
 
@@ -8,9 +12,20 @@ describe('UploadCsvFileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UploadCsvFileComponent ]
-    })
-    .compileComponents();
+      declarations: [UploadCsvFileComponent],
+      imports: [
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatIconModule,
+        MatTooltipModule,
+      ],
+    }).compileComponents();
+  });
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [UploadCsvFileComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

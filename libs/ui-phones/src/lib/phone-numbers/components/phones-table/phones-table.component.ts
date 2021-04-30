@@ -1,6 +1,5 @@
 import { PhoneNumber } from '.prisma/client';
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   Input,
