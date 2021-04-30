@@ -1,4 +1,4 @@
-# Interlogica
+# Interlogica Challenge
 
 ## Run the solution in localhost
 
