@@ -16,8 +16,6 @@ follow the steps in this order
   - `npm start api`
   - `npm start numbers`
 
-    or
-
 - [yarn]
 
   - `yarn install`
