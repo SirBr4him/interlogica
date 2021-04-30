@@ -1,11 +1,5 @@
 # Interlogica
 
-This project was generated using [Nx](https://nx.dev).
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
-
-🔎 **Powerful, Extensible Dev Tools**
-
 ## Run the solution in localhost
 
 follow the steps in this order
@@ -36,13 +30,19 @@ When the app is running navigate to `http://localhost:4200` and upload the south
 
   - `npm run test {projectName}`
 
-    or
-
 - [yarn]
 
   - `yarn test {projectName}`
 
 The project name can be an {appName} or a {libName} those names are the folder names inside apps and libs folders.
+
+## About used tools
+
+This project was generated using [Nx](https://nx.dev).
+
+<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+
+🔎 **Powerful, Extensible Dev Tools**
 
 ## Adding capabilities to your workspace
 
