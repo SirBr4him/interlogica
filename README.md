@@ -30,6 +30,8 @@ The back-end api swagger docs will run on `http://localhost:3333/docs`
 
 The front-end app will run on `http://localhost:4200`
 
+When the app is running navigate to `http://localhost:4200` and upload the south africa phone numbers csv file and check the result.
+
 ## Run tests
 
 - [npm]
