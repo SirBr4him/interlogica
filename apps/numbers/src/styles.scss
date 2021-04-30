@@ -29,3 +29,11 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
+
+.text-error {
+  color: mat-color($numbers-warn);
+}
+
+.text-right {
+  text-align: right;
+}

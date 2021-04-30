@@ -1,1 +1,15 @@
-<p>upload-csv-file works!</p>
+<button mat-fab class="d-block ml-auto mb-2" (click)="csvFileInput.click()">
+  <mat-icon>upload</mat-icon>
+</button>
+
+<input
+  class="input-file-csv"
+  type="file"
+  #csvFileInput
+  (change)="onFilePicked($event)"
+  accept=".csv"
+/>
+
+<p class="text-error text-right" *ngIf="error">
+  {{ error }}
+</p>

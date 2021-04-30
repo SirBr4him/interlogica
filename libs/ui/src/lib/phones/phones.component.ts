@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PhoneNumber } from '@prisma/client';
 import { Observable } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { PhonesService } from '../phones.service';
 
 @Component({
@@ -16,17 +16,35 @@ export class PhonesComponent implements OnInit {
 
   constructor(private readonly phonesService: PhonesService) {}
 
+  private loadPhoneNumbers() {
+    this.phonesService.getPhones().subscribe();
+  }
+
   ngOnInit(): void {
-    this.phonesService.getPhones();
+    this.loadPhoneNumbers();
 
     this.validPhoneNumbers$ = this.phonesService.phoneNumbers$.pipe(
-      map((items) => items.filter((item) => item.valid))
+      map((items) =>
+        items.filter(
+          ({ valid, number, original }) => valid && original === number
+        )
+      )
     );
     this.correctedPhoneNumbers$ = this.phonesService.phoneNumbers$.pipe(
-      map((items) => items.filter(({ valid, original }) => valid && !!original))
+      map((items) =>
+        items.filter(
+          ({ valid, number, original }) => valid && original !== number
+        )
+      )
     );
     this.invalidPhoneNumbers$ = this.phonesService.phoneNumbers$.pipe(
       map((items) => items.filter((item) => !item.valid))
     );
+  }
+
+  onFileChanged(event: File) {
+    this.phonesService.uploadFile(event).subscribe(() => {
+      this.loadPhoneNumbers();
+    });
   }
 }

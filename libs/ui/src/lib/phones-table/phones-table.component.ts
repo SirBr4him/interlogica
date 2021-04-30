@@ -1,5 +1,12 @@
 import { PhoneNumber } from '.prisma/client';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  ViewChild,
+} from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'interlogica-phones-table',
@@ -9,7 +16,20 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 })
 export class PhonesTableComponent {
   @Input()
-  phones: PhoneNumber[];
+  set phones(value: PhoneNumber[]) {
+    if (value) {
+      this.dataSource = new MatTableDataSource(value);
+      this.dataSource.paginator = this.paginator;
+      this.show = true;
+    }
+  }
 
-  displayedColumns = ['id', 'number', 'original', 'valid'];
+  @Input()
+  displayedColumns: string[];
+
+  dataSource: MatTableDataSource<PhoneNumber>;
+
+  show = false;
+
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 }
