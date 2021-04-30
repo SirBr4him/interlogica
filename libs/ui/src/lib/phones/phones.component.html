@@ -6,22 +6,41 @@
 <div class="container py-3">
   <mat-tab-group>
     <mat-tab label="Valid phone numbers">
-      <interlogica-phones-table
-        [phones]="validPhoneNumbers$ | async"
-        [displayedColumns]="['id', 'original', 'valid']"
-      ></interlogica-phones-table>
+      <ng-container
+        *ngIf="validPhoneNumbers$ | async as validPhoneNumbers; else noData"
+      >
+        <interlogica-phones-table
+          [phones]="validPhoneNumbers"
+          [displayedColumns]="['id', 'original', 'valid']"
+        ></interlogica-phones-table>
+      </ng-container>
     </mat-tab>
     <mat-tab label="Corrected phone numbers">
-      <interlogica-phones-table
-        [phones]="correctedPhoneNumbers$ | async"
-        [displayedColumns]="['id', 'original', 'number', 'valid']"
-      ></interlogica-phones-table>
+      <ng-container
+        *ngIf="
+          correctedPhoneNumbers$ | async as correctedPhoneNumbers;
+          else noData
+        "
+      >
+        <interlogica-phones-table
+          [phones]="correctedPhoneNumbers$ | async"
+          [displayedColumns]="['id', 'original', 'number', 'valid']"
+        ></interlogica-phones-table>
+      </ng-container>
     </mat-tab>
     <mat-tab label="Invalid phone numbers">
-      <interlogica-phones-table
-        [phones]="invalidPhoneNumbers$ | async"
-        [displayedColumns]="['id', 'original', 'valid']"
-      ></interlogica-phones-table>
+      <ng-container
+        *ngIf="invalidPhoneNumbers$ | async as invalidPhoneNumbers; else noData"
+      >
+        <interlogica-phones-table
+          [phones]="invalidPhoneNumbers$ | async"
+          [displayedColumns]="['id', 'original', 'valid']"
+        ></interlogica-phones-table>
+      </ng-container>
     </mat-tab>
   </mat-tab-group>
 </div>
+
+<ng-template #noData>
+  <p>No phone numbers was found</p>
+</ng-template>
