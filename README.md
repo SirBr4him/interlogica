@@ -14,7 +14,7 @@ follow the steps in this order
 
   - `yarn install`
   - `yarn start api`
-  - `npm start numbers`
+  - `yarn start numbers`
 
 The back-end api will run on `http://localhost:3333/api`
 
@@ -34,7 +34,7 @@ When the app is running navigate to `http://localhost:4200` and upload the south
 
   - `yarn test {projectName}`
 
-The project name can be an {appName} or a {libName} those names are the folder names inside apps and libs folders.
+The {projectName} can be an {appName} or a {libName} those names are the folder names inside apps and libs folders.
 
 ## About used tools
 
