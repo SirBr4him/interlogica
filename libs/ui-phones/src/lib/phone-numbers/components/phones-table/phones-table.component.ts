@@ -1,5 +1,6 @@
 import { PhoneNumber } from '.prisma/client';
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   Input,
@@ -16,7 +17,7 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./phones-table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PhonesTableComponent implements OnChanges {
+export class PhonesTableComponent implements OnChanges, AfterViewInit {
   @Input()
   phones: PhoneNumber[];
 
@@ -28,10 +29,13 @@ export class PhonesTableComponent implements OnChanges {
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
 
   ngOnChanges(changes: SimpleChanges): void {
-    const { phones } = changes;
-    if (!phones.firstChange) {
+    const { currentValue } = changes.phones;
+    if (currentValue?.length) {
       this.dataSource = new MatTableDataSource(this.phones);
-      this.dataSource.paginator = this.paginator;
     }
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
   }
 }

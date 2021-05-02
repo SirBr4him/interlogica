@@ -1,17 +1,18 @@
 import { Module } from '@nestjs/common';
 import { MulterModule } from '@nestjs/platform-express';
 
+import { PhonesModule } from '@interlogica/phones';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { PhonesController, PhonesService } from '@interlogica/phones';
 
 @Module({
   imports: [
     MulterModule.register({
       dest: `${__dirname}/uploads`,
     }),
+    PhonesModule,
   ],
-  controllers: [AppController, PhonesController],
-  providers: [AppService, PhonesService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

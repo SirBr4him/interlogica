@@ -26,6 +26,16 @@ When the app is running navigate to `http://localhost:4200` and upload the south
 
 You can fine the csv file in `./tools/files/Pre-selezione. South_African_Mobile_Numbers.csv`
 
+If you want start with clean empty DB just delete the dev.db file in prisma folder `prisma/dev.db` then launch this command:
+
+- [npm]
+
+  - `npm run prisma db push --preview-feature`
+
+- [yarn]
+
+  - `yarn prisma db push --preview-feature`
+
 ## Run tests
 
 - [npm]
